@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { useCallback, useEffect, useRef, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { publicRoutes, privateRoutes } from './routes';
+import { Account } from '~/class';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const urlAccount = 'http://localhost:3000/accountData';
+    const urlEmoloyee = 'http://localhost:3000/employeeData';
+    const account = useRef(new Account());
+
+    const [page, setPage] = useState(publicRoutes);
+    const [accountData, setAccountData] = useState([]);
+    const [employeeData, setemployeeData] = useState([]);
+    useEffect(() => {
+        fetch(urlAccount)
+            .then((respond) => {
+                return respond.json();
+            })
+            .then((accountData) => {
+                accountData = accountData.accountData;
+                setAccountData(accountData);
+            });
+
+        // fetch(urlEmoloyee)
+        //     .then((respond) => {
+        //         return respond.json();
+        //     })
+        //     .then((employeeData) => {
+        //         employeeData = employeeData.accountData;
+        //         setemployeeData(employeeData);
+        //     });
+    }, []);
+    // console.log(employeeData);
+    const handleLogin = useCallback((accountParameter) => {
+        account.current.loginStatus = true;
+        account.current.setAccountName(accountParameter.getAccountName());
+        account.current.setAccountPassWord(accountParameter.getAccountPassWord());
+        var valid = accountData.some((accounts) => {
+            return (
+                account.current.getAccountPassWord() == accounts.passWord &&
+                account.current.getAccountName() == accounts.accountName
+            );
+        });
+
+        if (valid) {
+            alert(`hello ${account.current.getAccountName()}`);
+            setPage(privateRoutes);
+        } else {
+            alert(`Sai rồi ${account.current.getAccountName()}`);
+        }
+    });
+    return (
+        <Router>
+            <div className="App">
+                <Routes>
+                    {page.map((route, index) => {
+                        const Page = route.component;
+                        return <Route key={index} path={route.path} element={<Page onLogin={handleLogin} />} />;
+                    })}
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
