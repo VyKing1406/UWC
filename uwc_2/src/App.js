@@ -20,27 +20,30 @@ function App() {
                 setAccountData(accountData);
             });
 
-        // fetch(urlEmoloyee)
-        //     .then((respond) => {
-        //         return respond.json();
-        //     })
-        //     .then((employeeData) => {
-        //         employeeData = employeeData.accountData;
-        //         setemployeeData(employeeData);
-        //     });
+        fetch(urlEmoloyee)
+            .then((respond) => {
+                return respond.json();
+            })
+            .then((employeeData) => {
+                employeeData = employeeData.employeeData;
+                setemployeeData(employeeData);
+            });
     }, []);
-    // console.log(employeeData);
     const handleLogin = useCallback((accountParameter) => {
         account.current.loginStatus = true;
         account.current.setAccountName(accountParameter.getAccountName());
         account.current.setAccountPassWord(accountParameter.getAccountPassWord());
         var valid = accountData.some((accounts) => {
-            return (
+            if (
                 account.current.getAccountPassWord() == accounts.passWord &&
                 account.current.getAccountName() == accounts.accountName
-            );
+            ) {
+                account.current.setAccountId(accounts.id);
+                return 1;
+            }
+            return 0;
         });
-
+        setPage(privateRoutes);
         if (valid) {
             alert(`hello ${account.current.getAccountName()}`);
             setPage(privateRoutes);
@@ -48,13 +51,20 @@ function App() {
             alert(`Sai rồi ${account.current.getAccountName()}`);
         }
     });
+
     return (
         <Router>
             <div className="App">
                 <Routes>
                     {page.map((route, index) => {
                         const Page = route.component;
-                        return <Route key={index} path={route.path} element={<Page onLogin={handleLogin} />} />;
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={<Page onLogin={handleLogin} employeeData={{ employeeData, account }} />}
+                            />
+                        );
                     })}
                 </Routes>
             </div>
