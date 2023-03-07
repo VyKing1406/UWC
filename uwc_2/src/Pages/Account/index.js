@@ -2,13 +2,15 @@ import { useNavigate } from 'react-router-dom';
 import { SideBar } from '~/components';
 import clsx from 'clsx';
 import styles from './Account.module.scss';
-function Account({ employeeData }) {
-    const employeeIndex = employeeData.employeeData.findIndex((employee) => {
-        if (employee.id == employeeData.account.current.id) {
+function Account({ accountCurrent }) {
+    const employeeData = JSON.parse(localStorage.getItem('employeeData'));
+    const accountData = JSON.parse(localStorage.getItem('accountData'));
+    const employeeIndex = employeeData.findIndex((employee) => {
+        if (employee.id == accountCurrent.current.id) {
             return true;
         }
     });
-    const employeeInfo = employeeData.employeeData[employeeIndex];
+    const employeeInfo = employeeData[employeeIndex];
     return (
         <div>
             <h1>Account</h1>

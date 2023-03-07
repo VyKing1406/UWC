@@ -1,0 +1,24 @@
+{
+    "MCP": [
+        {
+            "MCPid": 1,
+            "address": "ktx A"
+        },
+        {
+            "MCPid": 2,
+            "address": "ktx B"
+        },
+        {
+            "MCPid": 3,
+            "address": "ktx C"
+        },
+        {
+            "MCPid": 4,
+            "address": "ktx D"
+        },
+        {
+            "MCPid": 5,
+            "address": "ktx E"
+        }
+    ]
+}

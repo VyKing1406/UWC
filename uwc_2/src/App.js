@@ -18,6 +18,7 @@ function App() {
             .then((accountData) => {
                 accountData = accountData.accountData;
                 setAccountData(accountData);
+                localStorage.setItem('accountData', JSON.stringify(accountData));
             });
 
         fetch(urlEmoloyee)
@@ -27,6 +28,7 @@ function App() {
             .then((employeeData) => {
                 employeeData = employeeData.employeeData;
                 setemployeeData(employeeData);
+                localStorage.setItem('employeeData', JSON.stringify(employeeData));
             });
     }, []);
     const handleLogin = useCallback((accountParameter) => {
@@ -62,7 +64,7 @@ function App() {
                             <Route
                                 key={index}
                                 path={route.path}
-                                element={<Page onLogin={handleLogin} employeeData={{ employeeData, account }} />}
+                                element={<Page onLogin={handleLogin} accountCurrent={account} />}
                             />
                         );
                     })}

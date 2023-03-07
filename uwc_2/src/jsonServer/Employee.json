@@ -1,9 +1,39 @@
 {
     "employeeData": [
-        { "id": "1", "name": "Vuong", "sex": "Male", "address": "ktx khu A" },
-        { "id": "2", "name": "Vuong1", "sex": "Male1", "address": "ktx khu A1" },
-        { "id": "3", "name": "Vuong2", "sex": "Male2", "address": "ktx khu A2" },
-        { "id": "4", "name": "Vuong3", "sex": "Male3", "address": "ktx khu A3" },
-        { "id": "5", "name": "Vuong4", "sex": "Male4", "address": "ktx khu A4" }
+        {
+            "id": "1",
+            "name": "Vuong",
+            "sex": "Male",
+            "address": "ktx khu A",
+            "job": []
+        },
+        {
+            "id": "2",
+            "name": "Vuong1",
+            "sex": "Male1",
+            "address": "ktx khu A1",
+            "job": []
+        },
+        {
+            "id": "3",
+            "name": "Vuong2",
+            "sex": "Male2",
+            "address": "ktx khu A2",
+            "job": []
+        },
+        {
+            "id": "4",
+            "name": "Vuong3",
+            "sex": "Male3",
+            "address": "ktx khu A3",
+            "job": []
+        },
+        {
+            "id": "5",
+            "name": "Vuong4",
+            "sex": "Male4",
+            "address": "ktx khu A4",
+            "job": []
+        }
     ]
 }

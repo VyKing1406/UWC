@@ -12,7 +12,7 @@ function SideBar() {
             </button>
             <button
                 onClick={() => {
-                    navigate('/Work calendar');
+                    navigate('/workCalendar');
                 }}
             >
                 Work calendar
