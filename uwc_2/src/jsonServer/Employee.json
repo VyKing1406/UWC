@@ -1,39 +1,100 @@
-{
-    "employeeData": [
-        {
-            "id": "1",
-            "name": "Vuong",
-            "sex": "Male",
-            "address": "ktx khu A",
-            "job": []
-        },
-        {
-            "id": "2",
-            "name": "Vuong1",
-            "sex": "Male1",
-            "address": "ktx khu A1",
-            "job": []
-        },
-        {
-            "id": "3",
-            "name": "Vuong2",
-            "sex": "Male2",
-            "address": "ktx khu A2",
-            "job": []
-        },
-        {
-            "id": "4",
-            "name": "Vuong3",
-            "sex": "Male3",
-            "address": "ktx khu A3",
-            "job": []
-        },
-        {
-            "id": "5",
-            "name": "Vuong4",
-            "sex": "Male4",
-            "address": "ktx khu A4",
-            "job": []
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "BackOfficer": true,
+        "name": "Vuong",
+        "sex": "Male",
+        "address": "ktx khu A",
+        "job": []
+    },
+    {
+        "id": 2,
+        "BackOfficer": false,
+        "name": "Vuong1",
+        "sex": "Male1",
+        "address": "ktx khu A1",
+        "job": [
+            { "MCPid": 2, "position": "collector", "date": "10/3/2023", "vehicleId": 2 },
+            { "MCPid": 2, "position": "collector", "date": "9/3/2023", "vehicleId": 2 },
+            { "MCPid": 2, "position": "collector", "date": "14/3/2023", "vehicleId": 2 },
+            { "MCPid": 2, "position": "collector", "date": "4/3/2023", "vehicleId": 2 },
+            { "MCPid": 2, "position": "collector", "date": "25/4/2023", "vehicleId": 2 },
+            { "MCPid": 2, "position": "collector", "date": "25/4/2023", "vehicleId": 2 }
+        ]
+    },
+    {
+        "id": 3,
+        "BackOfficer": false,
+        "name": "Vuong2",
+        "sex": "Male2",
+        "address": "ktx khu A2",
+        "job": []
+    },
+    {
+        "id": 4,
+        "BackOfficer": false,
+        "name": "Vuong3",
+        "sex": "Male3",
+        "address": "ktx khu A3",
+        "job": [{ "MCPid": 1, "position": "janitor", "date": "8/3/2023", "vehicleId": 1 }]
+    },
+    {
+        "id": 5,
+        "BackOfficer": false,
+        "name": "Vuong4",
+        "sex": "Male4",
+        "address": "ktx khu A4",
+        "job": []
+    },
+    {
+        "id": 6,
+        "BackOfficer": false,
+        "name": "Vuong4",
+        "sex": "Male4",
+        "address": "ktx khu A4",
+        "job": [{ "MCPid": 2, "position": "janitor", "date": "10/3/2023", "vehicleId": 2 }]
+    },
+    {
+        "id": 7,
+        "BackOfficer": false,
+        "name": "Vuong4",
+        "sex": "Male4",
+        "address": "ktx khu A4",
+        "job": []
+    },
+    {
+        "id": 8,
+        "BackOfficer": false,
+        "name": "Vuong4",
+        "sex": "Male4",
+        "address": "ktx khu A4",
+        "job": [{ "MCPid": 2, "position": "collector", "date": "10/3/2023", "vehicleId": 2 }]
+    },
+    {
+        "id": 9,
+        "BackOfficer": false,
+        "name": "Vuong4",
+        "sex": "Male4",
+        "address": "ktx khu A4",
+        "job": [{ "MCPid": 4, "position": "janitor", "date": "1/3/2023", "vehicleId": 5 }]
+    },
+    {
+        "id": 10,
+        "BackOfficer": false,
+        "name": "Vuong4",
+        "sex": "Male4",
+        "address": "ktx khu A4",
+        "job": [
+            { "MCPid": 1, "position": "collector", "date": "8/3/2023", "vehicleId": 1 },
+            { "MCPid": 4, "position": "collector", "date": "1/3/2023", "vehicleId": 5 }
+        ]
+    },
+    {
+        "id": 11,
+        "BackOfficer": false,
+        "name": "Vuong4",
+        "sex": "Male4",
+        "address": "ktx khu A4",
+        "job": []
+    }
+]

@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import { SideBar } from '~/components';
 import clsx from 'clsx';
 import styles from './Account.module.scss';
-function Account({ accountCurrent }) {
+function Account() {
     const employeeData = JSON.parse(localStorage.getItem('employeeData'));
-    const accountData = JSON.parse(localStorage.getItem('accountData'));
+    const accountData = JSON.parse(localStorage.getItem('account'));
     const employeeIndex = employeeData.findIndex((employee) => {
-        if (employee.id == accountCurrent.current.id) {
+        if (employee.id == accountData.id) {
             return true;
         }
     });

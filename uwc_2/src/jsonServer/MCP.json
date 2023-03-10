@@ -19,6 +19,14 @@
         {
             "MCPid": 5,
             "address": "ktx E"
+        },
+        {
+            "MCPid": 6,
+            "address": "ktx E"
+        },
+        {
+            "MCPid": 7,
+            "address": "ktx E"
         }
     ]
 }

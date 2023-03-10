@@ -4,11 +4,7 @@ import Login from '~/Pages/Login';
 import Account from '~/Pages/Account';
 import Employee from '~/Pages/Employee';
 import WorkCalendar from '~/Pages/WorkCalendar';
-const publicRoutes = [
-    { path: '/', component: Login },
-    { path: '/employee', component: Employee },
-    { path: '/workCalendar', component: WorkCalendar },
-];
+const publicRoutes = [{ path: '/', component: Login }];
 
 const privateRoutes = [
     { path: '/', component: Home },

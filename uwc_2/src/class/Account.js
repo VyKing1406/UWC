@@ -4,9 +4,14 @@ class Account {
         this.userName = '';
         this.passWord = '';
         this.loginStatus = false;
+        this.backOfficer = false;
     }
     logIn(userName, password) {}
     logOut() {}
+    setBackOfficer(check = false) {
+        this.backOfficer = check;
+        return;
+    }
     setAccountId(id = '') {
         this.id = id;
         return;
@@ -25,6 +30,9 @@ class Account {
     }
     getAccountName() {
         return this.userName;
+    }
+    getBackOfficer() {
+        return this.backOfficer;
     }
     getAccountPassWord() {
         return this.passWord;

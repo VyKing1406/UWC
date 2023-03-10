@@ -1,0 +1,11 @@
+.btn_select {
+    margin-top: 16px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.employee_list {
+    height: 200px;
+    overflow: scroll;
+    pointer-events: auto;
+}
