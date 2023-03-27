@@ -1,51 +1,64 @@
 import { useNavigate } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
 function SideBar() {
     const navigate = useNavigate();
     return (
-        <div>
-            <button
-                onClick={() => {
-                    navigate('/');
-                }}
-            >
-                Home
-            </button>
-            <button
-                onClick={() => {
-                    navigate('/workCalendar');
-                }}
-            >
-                Work calendar
-            </button>
-            <button
-                onClick={() => {
-                    navigate('/MCP Map');
-                }}
-            >
-                MCP Map
-            </button>
-            <button
-                onClick={() => {
-                    navigate('/Chat');
-                }}
-            >
-                Chat
-            </button>
-            <button
-                onClick={() => {
-                    navigate('/employee');
-                }}
-            >
-                Employee
-            </button>
-            <button
-                onClick={() => {
-                    navigate('/account');
-                }}
-            >
-                Account
-            </button>
-        </div>
+        <Nav justify variant="tabs">
+            <Nav.Item>
+                <Nav.Link
+                    onClick={() => {
+                        navigate('/');
+                    }}
+                >
+                    Home
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link
+                    onClick={() => {
+                        navigate('/workCalendar');
+                    }}
+                >
+                    Work Calendar
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link
+                    onClick={() => {
+                        navigate('/mcpMap');
+                    }}
+                >
+                    MCP map
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link
+                    onClick={() => {
+                        navigate('/mcpMap');
+                    }}
+                >
+                    Chat
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link
+                    onClick={() => {
+                        navigate('/employee');
+                    }}
+                >
+                    Employee
+                </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+                <Nav.Link
+                    onClick={() => {
+                        navigate('/account');
+                    }}
+                >
+                    Account
+                </Nav.Link>
+            </Nav.Item>
+        </Nav>
     );
 }
 

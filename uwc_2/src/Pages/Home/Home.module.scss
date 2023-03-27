@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.flex_item {
+    max-height: 600px;
+}
+
+.slide_img {
+    margin: auto;
+    object-fit: cover;
+}

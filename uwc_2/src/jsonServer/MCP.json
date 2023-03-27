@@ -2,31 +2,38 @@
     "MCP": [
         {
             "MCPid": 1,
-            "address": "ktx A"
+            "address": "ktx A",
+            "status": 90
         },
         {
             "MCPid": 2,
-            "address": "ktx B"
+            "address": "ktx B",
+            "status": 20
         },
         {
             "MCPid": 3,
-            "address": "ktx C"
+            "address": "ktx C",
+            "status": 20
         },
         {
             "MCPid": 4,
-            "address": "ktx D"
+            "address": "ktx D",
+            "status": 100
         },
         {
             "MCPid": 5,
-            "address": "ktx E"
+            "address": "ktx E",
+            "status": 25
         },
         {
             "MCPid": 6,
-            "address": "ktx E"
+            "address": "ktx E",
+            "status": 15
         },
         {
             "MCPid": 7,
-            "address": "ktx E"
+            "address": "ktx E",
+            "status": 13
         }
     ]
 }

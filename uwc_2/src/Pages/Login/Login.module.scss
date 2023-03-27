@@ -1,0 +1,15 @@
+.container {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+.login_box {
+    margin: 40% 20% 50% 50%;
+    width: 30%;
+}

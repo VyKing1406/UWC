@@ -4,6 +4,7 @@ import Login from '~/Pages/Login';
 import Account from '~/Pages/Account';
 import Employee from '~/Pages/Employee';
 import WorkCalendar from '~/Pages/WorkCalendar';
+import McpMap from '~/Pages/McpMap/McpMap';
 const publicRoutes = [{ path: '/', component: Login }];
 
 const privateRoutes = [
@@ -12,5 +13,6 @@ const privateRoutes = [
     { path: '/account', component: Account },
     { path: '/employee', component: Employee },
     { path: '/workCalendar', component: WorkCalendar },
+    { path: '/mcpMap', component: McpMap },
 ];
 export { publicRoutes, privateRoutes };
