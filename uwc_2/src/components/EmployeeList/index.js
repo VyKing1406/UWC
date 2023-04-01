@@ -1,4 +1,6 @@
 import { useRef, useState, memo, useMemo } from 'react';
+import clsx from 'clsx';
+import styles from './EmployeeList.module.scss';
 function EmployeeList({ date, addBox }) {
     const employeesData = useRef(JSON.parse(localStorage.getItem('employeeData')));
     const accountData = useRef(JSON.parse(localStorage.getItem('account')));
@@ -65,10 +67,16 @@ function EmployeeList({ date, addBox }) {
     if (addBox == 1) {
         return (
             <div>
-                {MCPData.current.MCP.map((MCP, index) => {
+                {MCPData.current.map((MCP, index) => {
                     return (
-                        <ul key={index}>
+                        <div className={clsx(styles.wrapper)}>
+                            <ul key={index} className={clsx(styles.container)}>
+                                <li className={clsx(styles.flex_item)}>MCP id: {MCP.MCPid}</li>
+                                <li className={clsx(styles.flex_item)}>MCP address: {MCP.address}</li>
+                            </ul>
                             <input
+                                key={index + 101}
+                                className={clsx(styles.container, styles.check_box)}
                                 type="checkbox"
                                 onClick={(e) => {
                                     if (e.target.checked) {
@@ -76,9 +84,7 @@ function EmployeeList({ date, addBox }) {
                                     }
                                 }}
                             ></input>
-                            <li>{MCP.MCPid}</li>
-                            <li>{MCP.address}</li>
-                        </ul>
+                        </div>
                     );
                 })}
             </div>
@@ -88,8 +94,15 @@ function EmployeeList({ date, addBox }) {
             <div>
                 {employeesData.current.map((employee, index) => {
                     return (
-                        <ul key={index + 100}>
+                        <div className={clsx(styles.wrapper)}>
+                            <ul key={index + 100} className={clsx(styles.container)}>
+                                <li className={clsx(styles.flex_item)}>Employee id: {employee.id}</li>
+                                <li className={clsx(styles.flex_item)}>Employee name: {employee.name}</li>
+                                <li className={clsx(styles.flex_item)}>Employee sex: {employee.sex}</li>
+                            </ul>
                             <input
+                                key={index + 1001}
+                                className={clsx(styles.container, styles.check_box)}
                                 type="checkbox"
                                 onClick={(e) => {
                                     if (e.target.checked) {
@@ -101,10 +114,7 @@ function EmployeeList({ date, addBox }) {
                                     }
                                 }}
                             ></input>
-                            <li>{employee.id}</li>
-                            <li>{employee.name}</li>
-                            <li>{employee.sex}</li>
-                        </ul>
+                        </div>
                     );
                 })}
             </div>
@@ -114,8 +124,15 @@ function EmployeeList({ date, addBox }) {
             <div>
                 {employeesData.current.map((employee, index) => {
                     return (
-                        <ul key={index + 200}>
+                        <div className={clsx(styles.wrapper)}>
+                            <ul key={index + 200} className={clsx(styles.container)}>
+                                <li className={clsx(styles.flex_item)}>Employee id: {employee.id}</li>
+                                <li className={clsx(styles.flex_item)}>Employee name: {employee.name}</li>
+                                <li className={clsx(styles.flex_item)}>Employee sex: {employee.sex}</li>
+                            </ul>
                             <input
+                                key={index + 10001}
+                                className={clsx(styles.container, styles.check_box)}
                                 type="checkbox"
                                 onClick={(e) => {
                                     if (e.target.checked) {
@@ -127,10 +144,7 @@ function EmployeeList({ date, addBox }) {
                                     }
                                 }}
                             ></input>
-                            <li>{employee.id}</li>
-                            <li>{employee.name}</li>
-                            <li>{employee.sex}</li>
-                        </ul>
+                        </div>
                     );
                 })}
             </div>
@@ -140,8 +154,14 @@ function EmployeeList({ date, addBox }) {
             <div>
                 {vehicleData.current.vehicle.map((vehicle, index) => {
                     return (
-                        <ul key={index + 300}>
+                        <div className={clsx(styles.wrapper)}>
+                            <ul key={index + 300} className={clsx(styles.container)}>
+                                <li className={clsx(styles.flex_item)}>Vehicle id: {vehicle.vehicleId}</li>
+                                <li className={clsx(styles.flex_item)}>Vehicle type: {vehicle.type}</li>
+                            </ul>
                             <input
+                                key={index + 100001}
+                                className={clsx(styles.container, styles.check_box)}
                                 type="checkbox"
                                 onClick={(e) => {
                                     if (e.target.checked) {
@@ -149,9 +169,7 @@ function EmployeeList({ date, addBox }) {
                                     }
                                 }}
                             ></input>
-                            <li>{vehicle.vehicleId}</li>
-                            <li>{vehicle.type}</li>
-                        </ul>
+                        </div>
                     );
                 })}
             </div>
