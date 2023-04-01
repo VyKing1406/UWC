@@ -10,6 +10,27 @@
     align-items: center;
 }
 .login_box {
+    max-width: 500px;
+    border: 1px solid #ccc;
+    box-shadow: 0px 0px 7px 5px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    padding: 10px 20px;
     margin: 40% 20% 50% 50%;
-    width: 30%;
+    width: 35%;
+}
+
+.login_box__title {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.login_box_button {
+    display: flex;
+    justify-content: space-between;
+}
+
+.button_login {
+}
+
+.button_signin {
 }

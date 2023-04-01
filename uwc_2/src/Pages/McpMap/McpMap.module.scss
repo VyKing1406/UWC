@@ -1,0 +1,51 @@
+.container {
+    max-width: 75vw;
+    display: flex;
+    justify-content: center;
+}
+
+.fixed {
+    z-index: 1;
+    width: 75vw;
+    justify-content: center;
+    background-color: white;
+    padding-bottom: 20px;
+    position: fixed;
+}
+
+.change_box_container {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center; /* căn giữa theo chiều ngang */
+    align-items: center;
+}
+.change_box {
+    margin: auto;
+}
+
+.flex_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 200px 0px 0px 0px;
+    width: 100%;
+}
+
+.flex_item {
+    position: relative;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 35vw;
+    height: 200px;
+    list-style: none;
+}
+
+.MCP_img {
+    position: absolute;
+    width: 40%;
+    height: 80%;
+    object-fit: contain;
+    top: 20px;
+    right: 20px;
+}

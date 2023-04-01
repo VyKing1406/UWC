@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from 'react';
 import Tippy from '@tippyjs/react/headless';
 import styles from './Calendar.module.scss';
 import JobBox from '../JobBox';
+import { calendarBackground } from '~/image';
 function Calendar() {
     const employeesData = useRef(JSON.parse(localStorage.getItem('employeeData')));
     const accountData = useRef(JSON.parse(localStorage.getItem('account')));
@@ -14,7 +15,7 @@ function Calendar() {
     });
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-    const [visible, setVisible] = useState(0);
+    const [visible, setVisible] = useState(false);
     const [dateOnclick, setDateOnClick] = useState(0);
     let dayEle = [];
     for (let i = 100; i < 100 + getStartDayInMonth(); i++) {
@@ -52,9 +53,12 @@ function Calendar() {
             return 1;
         }
     }
+    const handleClick = (event) => {
+        setVisible(true);
+    };
 
     return (
-        <div className={clsx(styles.container)}>
+        <div className={clsx(styles.container)} style={{ backgroundImage: `url(${calendarBackground})` }}>
             <button
                 className={clsx(styles.btn, styles.btn_prev)}
                 onClick={() => {
@@ -71,7 +75,7 @@ function Calendar() {
                 </span>
             </button>
             <div className={clsx(styles.calendar)}>
-                <h1>Calendar</h1>
+                <h2>Calendar</h2>
                 <div className={clsx(styles.info)}>
                     <div className={clsx(styles.month)}>
                         {new Date(currentYear, currentMonth).toLocaleString('en-us', { month: 'long' })}
@@ -99,8 +103,8 @@ function Calendar() {
                                     key={day}
                                     className={clsx(styles.day, styles.today, styles.have_job)}
                                     onClick={() => {
+                                        handleClick();
                                         setDateOnClick(day);
-                                        setVisible(!visible);
                                     }}
                                 >
                                     {day}
@@ -112,8 +116,8 @@ function Calendar() {
                                     key={day}
                                     className={clsx(styles.day, styles.have_job)}
                                     onClick={() => {
+                                        handleClick();
                                         setDateOnClick(day);
-                                        setVisible(!visible);
                                     }}
                                 >
                                     {day}
@@ -125,8 +129,8 @@ function Calendar() {
                                     key={day}
                                     className={clsx(styles.day, styles.today)}
                                     onClick={() => {
+                                        handleClick();
                                         setDateOnClick(day);
-                                        setVisible(!visible);
                                     }}
                                 >
                                     {day}
@@ -138,8 +142,8 @@ function Calendar() {
                                     key={day}
                                     className={clsx(styles.day)}
                                     onClick={() => {
+                                        handleClick();
                                         setDateOnClick(day);
-                                        setVisible(!visible);
                                     }}
                                 >
                                     {day}
@@ -165,8 +169,14 @@ function Calendar() {
                     <i className={clsx('fa', 'fa-chevron-right')} aria-hidden="true"></i>
                 </span>
             </button>
-            <div>
-                <JobBox date={`${dateOnclick}/${currentMonth + 1}/${currentYear}`} visible={visible} />
+            <div className={clsx(styles.jobbox, styles.fade_in)}>
+                {visible && (
+                    <JobBox
+                        date={`${dateOnclick}/${currentMonth + 1}/${currentYear}`}
+                        visible={visible}
+                        setVisible={setVisible}
+                    />
+                )}
             </div>
         </div>
     );

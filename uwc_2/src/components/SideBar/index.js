@@ -3,7 +3,7 @@ import Nav from 'react-bootstrap/Nav';
 function SideBar() {
     const navigate = useNavigate();
     return (
-        <Nav justify variant="tabs">
+        <Nav fill variant="tabs">
             <Nav.Item>
                 <Nav.Link
                     onClick={() => {

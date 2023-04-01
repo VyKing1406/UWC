@@ -2,6 +2,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes, privateRoutes } from './routes';
 import { Account } from '~/class';
+import styles from './App.module.scss';
+import clsx from 'clsx';
 function App() {
     const urlAccounts = 'http://localhost:3000/accountData';
     const urlEmoloyees = 'http://localhost:3000/employeeData';
@@ -74,7 +76,7 @@ function App() {
 
     return (
         <Router>
-            <div className="App">
+            <div className={clsx(styles.container)}>
                 <Routes>
                     {page.map((route, index) => {
                         const Page = route.component;

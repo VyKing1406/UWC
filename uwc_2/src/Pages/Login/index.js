@@ -12,6 +12,7 @@ function Login({ onLogin }) {
         <div className={clsx(styles.container)} style={{ backgroundImage: `url(${loginBackground})` }}>
             <div className={clsx(styles.login_box)}>
                 <Form>
+                    <div className={clsx(styles.login_box__title)}>ĐĂNG NHẬP</div>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>User Name</Form.Label>
                         <Form.Control
@@ -21,7 +22,6 @@ function Login({ onLogin }) {
                                 user.setAccountName(event.target.value);
                             }}
                         />
-                        <Form.Text className="text-muted">We'll never share your email with anyone else.</Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -37,13 +37,17 @@ function Login({ onLogin }) {
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
-                    <Button
-                        onClick={() => {
-                            onLogin(user);
-                        }}
-                    >
-                        ĐĂNG NHẬP
-                    </Button>
+                    <div className={clsx(styles.login_box_button)}>
+                        <Button
+                            className={clsx(styles.button_login)}
+                            onClick={() => {
+                                onLogin(user);
+                            }}
+                        >
+                            ĐĂNG NHẬP
+                        </Button>
+                        <Button className={clsx(styles.button_signin)}>ĐĂNG KÝ</Button>
+                    </div>
                 </Form>
             </div>
         </div>
