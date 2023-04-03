@@ -14,29 +14,32 @@ function EmployeeList({ date, addBox }) {
     function UpdateJobApi(method, body, url, id) {
         fetch(`${url}/${id}`, {
             method: method,
-            body: JSON.stringify({
-                job: body,
-            }),
+            body: JSON.stringify(body),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         }).then((response) => response.json());
     }
     //
+    console.log(employeesData.current);
     const addBox5 = useMemo(() => {
         if (addBox == 5) {
             collectorUpdate.map((employeeUpdate) => {
                 employeesData.current.map((employeeOld) => {
                     if (employeeOld == employeeUpdate) {
-                        let newJob = {
-                            MCPid: MCPUpdate,
-                            position: 'collector',
-                            date: date,
-                            vehicleId: vehicleUpdate,
-                        };
-                        employeeOld.job.push(newJob);
-                        employeeOld.job = Array.from(new Set(employeeOld.job));
-                        UpdateJobApi('PATCH', employeeOld.job, urlEmployeeData, employeeOld.id);
+                        let newJob = Object.assign(
+                            {},
+                            {
+                                MCPid: MCPUpdate,
+                                position: 'collector',
+                                date: date,
+                                vehicleId: vehicleUpdate,
+                            },
+                        );
+
+                        employeeUpdate.job.push({ ...newJob });
+                        // employeeOld.job = Array.from(new Set(employeeOld.job));
+                        UpdateJobApi('PUT', employeeUpdate, urlEmployeeData, employeeOld.id);
                     }
                 });
             });
@@ -44,15 +47,18 @@ function EmployeeList({ date, addBox }) {
             janitorUpdate.map((employeeUpdate) => {
                 employeesData.current.map((employeeOld) => {
                     if (employeeOld == employeeUpdate) {
-                        let newJob = {
-                            MCPid: MCPUpdate,
-                            position: 'janitor',
-                            date: date,
-                            vehicleId: vehicleUpdate,
-                        };
-                        employeeOld.job.push(newJob);
-                        employeeOld.job = Array.from(new Set(employeeOld.job));
-                        UpdateJobApi('PATCH', employeeOld.job, urlEmployeeData, employeeOld.id);
+                        let newJob = Object.assign(
+                            {},
+                            {
+                                MCPid: MCPUpdate,
+                                position: 'collector',
+                                date: date,
+                                vehicleId: vehicleUpdate,
+                            },
+                        );
+                        employeeUpdate.job.push({ ...newJob });
+                        // employeeOld.job = Array.from(new Set(employeeOld.job));
+                        UpdateJobApi('PUT', employeeUpdate, urlEmployeeData, employeeOld.id);
                     }
                     setVehicleUpdate([]);
                     setCollectorUpdate([]);

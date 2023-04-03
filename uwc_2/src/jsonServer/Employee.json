@@ -13,13 +13,7 @@
         "name": "Vuong1",
         "sex": "Male1",
         "address": "ktx khu A1",
-        "job": [
-            { "MCPid": 2, "position": "collector", "date": "10/3/2023", "vehicleId": 2 },
-            { "MCPid": 2, "position": "collector", "date": "9/3/2023", "vehicleId": 2 },
-            { "MCPid": 2, "position": "collector", "date": "14/3/2023", "vehicleId": 2 },
-            { "MCPid": 2, "position": "collector", "date": "4/3/2023", "vehicleId": 2 },
-            { "MCPid": 2, "position": "collector", "date": "25/4/2023", "vehicleId": 2 }
-        ]
+        "job": [{ "MCPid": 2, "position": "collector", "date": "10/3/2023", "vehicleId": 2 }]
     },
     {
         "id": 3,
