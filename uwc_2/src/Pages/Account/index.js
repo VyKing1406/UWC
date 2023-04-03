@@ -2,7 +2,9 @@ import { useNavigate } from 'react-router-dom';
 import { SideBar } from '~/components';
 import clsx from 'clsx';
 import styles from './Account.module.scss';
+import { id1, id2, id3 } from '~/image/employee';
 function Account() {
+    const accountAvt = [id1, id2, id3, id1, id2, id3, id1, id2, id3, id1, id2];
     const employeeData = JSON.parse(localStorage.getItem('employeeData'));
     const accountData = JSON.parse(localStorage.getItem('account'));
     const employeeIndex = employeeData.findIndex((employee) => {
@@ -11,63 +13,23 @@ function Account() {
         }
     });
     const employeeInfo = employeeData[employeeIndex];
+    console.log(employeeInfo);
     return (
         <div>
-            <h1>Account</h1>
-            <SideBar />
-            <div>
-                <input
-                    className={clsx(styles.input)}
-                    placeholder={`Employee Number: ${employeeInfo.id}`}
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                    }}
-                ></input>
-                <button>
-                    <i className="ti-pencil"></i>
-                </button>
+            <div className={clsx(styles.fixed)}>
+                <h1>Account Details</h1>
+                <SideBar />
             </div>
-            <div>
-                <input
-                    className={clsx(styles.input, styles.name)}
-                    placeholder={`Name: ${employeeInfo.name}`}
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                    }}
-                ></input>
-                <button
-                // onClick={() => {
-                //     const input = document.querySelector(clsx(styles.name));
-                //     console.log(input);
-                // }}
-                >
-                    <i className="ti-pencil"></i>
-                </button>
-            </div>
-            <div>
-                <input
-                    className={clsx(styles.input)}
-                    placeholder={`sex: ${employeeInfo.sex}`}
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                    }}
-                ></input>
-                <button>
-                    <i className="ti-pencil"></i>
-                </button>
-            </div>
-            <div>
-                <input
-                    className={clsx(styles.input)}
-                    placeholder={`Address: ${employeeInfo.address}`}
-                    onMouseDown={(e) => {
-                        e.preventDefault();
-                    }}
-                ></input>
-                <button>
-                    <i className="ti-pencil"></i>
-                </button>
-            </div>
+            <ul className={clsx(styles.container)}>
+                <img className={clsx(styles.account_avt, styles.flex_item)} src={accountAvt[employeeInfo.id - 1]} />
+                <div className={clsx(styles.account_infor, styles.flex_item)}>
+                    <li>Name: {employeeInfo.name}</li>
+                    <li>Id Account: {employeeInfo.id}</li>
+                    <li>Sex: {employeeInfo.sex}</li>
+                    <li>Address: {employeeInfo.address}</li>
+                    <li>BackOfficer: {employeeInfo.BackOfficer ? 'Yes' : 'No'}</li>
+                </div>
+            </ul>
         </div>
     );
 }

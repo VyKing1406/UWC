@@ -12,6 +12,7 @@ function App() {
     const account = useRef(new Account());
 
     const [page, setPage] = useState(publicRoutes);
+    console.log(privateRoutes);
     const [accountData, setAccountData] = useState([]);
     const [employeeData, setemployeeData] = useState([]);
     useEffect(() => {

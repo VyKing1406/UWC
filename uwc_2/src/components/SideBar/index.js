@@ -34,7 +34,7 @@ function SideBar() {
             <Nav.Item>
                 <Nav.Link
                     onClick={() => {
-                        navigate('/mcpMap');
+                        navigate('/chat');
                     }}
                 >
                     Chat
