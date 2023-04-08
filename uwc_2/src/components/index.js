@@ -3,4 +3,5 @@ import EmployeeRender from './EmployeeRender';
 import AddItem from './AddItem';
 import Calendar from './Calendar';
 import EmployeeList from './EmployeeList';
-export { SideBar, EmployeeRender, AddItem, Calendar, EmployeeList };
+import employeeJob from './EmployeeJob';
+export { SideBar, EmployeeRender, AddItem, Calendar, EmployeeList, employeeJob };

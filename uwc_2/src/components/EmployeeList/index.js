@@ -51,7 +51,7 @@ function EmployeeList({ date, addBox }) {
                             {},
                             {
                                 MCPid: MCPUpdate,
-                                position: 'collector',
+                                position: 'janitor',
                                 date: date,
                                 vehicleId: vehicleUpdate,
                             },
@@ -66,6 +66,15 @@ function EmployeeList({ date, addBox }) {
                     setMCPUpdate([]);
                 });
             });
+            fetch(urlEmployeeData)
+                .then((respond) => {
+                    return respond.json();
+                })
+                .then((employeeData) => {
+                    localStorage.setItem('employeeData', JSON.stringify(employeeData));
+                });
+
+            employeesData.current = JSON.parse(localStorage.getItem('employeeData'));
         }
 
         return <span></span>;
