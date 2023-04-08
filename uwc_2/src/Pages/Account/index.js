@@ -3,7 +3,8 @@ import { SideBar } from '~/components';
 import clsx from 'clsx';
 import styles from './Account.module.scss';
 import { id1, id2, id3 } from '~/image/employee';
-function Account() {
+function Account({ onLogout }) {
+    const navigate = useNavigate();
     const accountAvt = [id1, id2, id3, id1, id2, id3, id1, id2, id3, id1, id2];
     const employeeData = JSON.parse(localStorage.getItem('employeeData'));
     const accountData = JSON.parse(localStorage.getItem('account'));
@@ -28,6 +29,14 @@ function Account() {
                     <li>Sex: {employeeInfo.sex}</li>
                     <li>Address: {employeeInfo.address}</li>
                     <li>BackOfficer: {employeeInfo.BackOfficer ? 'Yes' : 'No'}</li>
+                    <button
+                        onClick={() => {
+                            onLogout();
+                            navigate('/');
+                        }}
+                    >
+                        Log out
+                    </button>
                 </div>
             </ul>
         </div>

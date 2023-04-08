@@ -50,6 +50,10 @@ function App() {
                 localStorage.setItem('vehicleData', JSON.stringify(vehicle));
             });
     }, []);
+    const handleLogout = useCallback((a) => {
+        account.current.loginStatus = false;
+        setPage(publicRoutes);
+    });
     const handleLogin = useCallback((accountParameter) => {
         account.current.loginStatus = true;
         account.current.setAccountName(accountParameter.getAccountName());
@@ -81,7 +85,13 @@ function App() {
                 <Routes>
                     {page.map((route, index) => {
                         const Page = route.component;
-                        return <Route key={index} path={route.path} element={<Page onLogin={handleLogin} />} />;
+                        return (
+                            <Route
+                                key={index}
+                                path={route.path}
+                                element={<Page onLogin={handleLogin} onLogout={handleLogout} />}
+                            />
+                        );
                     })}
                 </Routes>
             </div>
