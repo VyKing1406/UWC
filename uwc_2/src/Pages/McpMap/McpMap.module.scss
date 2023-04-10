@@ -1,11 +1,15 @@
 .container {
+    position: relative;
     max-width: 75vw;
     display: flex;
     justify-content: center;
+    margin: auto;
     height: 600px;
 }
 
 .fixed {
+    position: absolute;
+    top: 42px;
     z-index: 1;
     width: 75vw;
     justify-content: center;
@@ -15,12 +19,12 @@
 }
 
 .change_box_container {
-    margin-top: 10px;
     display: flex;
     justify-content: center; /* căn giữa theo chiều ngang */
     align-items: center;
 }
 .change_box {
+    padding-top: 70px;
     margin: auto;
 }
 
@@ -28,7 +32,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 200px 0px 0px 0px;
+    padding: 120px 0px 0px 0px;
+
     width: 100%;
 }
 

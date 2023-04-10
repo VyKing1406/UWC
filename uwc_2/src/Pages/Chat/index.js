@@ -7,10 +7,6 @@ function Chat() {
     const employeeData = JSON.parse(localStorage.getItem('employeeData'));
     return (
         <div className={clsx(styles.container)}>
-            <div className={clsx(styles.fixed)}>
-                <h1>Chat</h1>
-                <SideBar />
-            </div>
             <img
                 className={clsx(styles.chat_img)}
                 src={

@@ -1,0 +1,19 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/forms';
+
+.nav-link {
+    color: #afd046;
+
+    &:hover {
+        color: #afd046;
+    }
+
+    &.active {
+        color: #afd046;
+        background-color: #afd046;
+        border-color: #afd046;
+    }
+}

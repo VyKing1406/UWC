@@ -3,12 +3,16 @@
     display: flex;
     justify-content: center;
     height: 600px;
+    margin: auto;
 }
 
 .fixed {
+    display: flex;
+    justify-content: center;
+    top: 42px;
     z-index: 1;
     width: 75vw;
-    justify-content: center;
+    margin: auto;
     background-color: white;
     padding-bottom: 20px;
     position: fixed;
@@ -18,7 +22,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 200px 0px 0px 0px;
+    padding: 90px 0px 0px 0px;
     width: 100%;
 }
 

@@ -7,7 +7,6 @@ import { slide_1, slide_2, slide_3 } from '~/image';
 function Home() {
     return (
         <div className={clsx(styles.home_page)}>
-            <SideBar />
             <Carousel className={clsx(styles.container)}>
                 <Carousel.Item interval={2000} className={clsx(styles.flex_item)}>
                     <img className={clsx(styles.slide_img, 'd-block', 'w-100')} src={slide_1} alt="First slide" />

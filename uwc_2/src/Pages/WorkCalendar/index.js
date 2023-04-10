@@ -1,7 +1,7 @@
 import { SideBar, EmployeeRender, AddItem, Calendar } from '~/components';
 import React from 'react';
 import { useState, useCallback, useRef, useEffect } from 'react';
-
+import styles from './WorkCalendar.module.scss';
 ///////////////////////////////////
 
 ///////////////////////////////////
@@ -17,9 +17,7 @@ function WorkCalendar({ accountCurrent }) {
         });
     return (
         <div>
-            <h1>Work Calendar</h1>
-            <SideBar />
-            <Calendar />
+            <Calendar className={styles.calendar} />
         </div>
     );
 }

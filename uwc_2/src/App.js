@@ -4,6 +4,7 @@ import { publicRoutes, privateRoutes } from './routes';
 import { Account } from '~/class';
 import styles from './App.module.scss';
 import clsx from 'clsx';
+import { SideBar } from './components';
 function App() {
     const urlAccounts = 'http://localhost:3000/accountData';
     const urlEmoloyees = 'http://localhost:3000/employeeData';
@@ -82,18 +83,23 @@ function App() {
     return (
         <Router>
             <div className={clsx(styles.container)}>
-                <Routes>
-                    {page.map((route, index) => {
-                        const Page = route.component;
-                        return (
-                            <Route
-                                key={index}
-                                path={route.path}
-                                element={<Page onLogin={handleLogin} onLogout={handleLogout} />}
-                            />
-                        );
-                    })}
-                </Routes>
+                <div className={styles.sidebar}>
+                    <SideBar />
+                </div>
+                <div className={styles.page}>
+                    <Routes>
+                        {page.map((route, index) => {
+                            const Page = route.component;
+                            return (
+                                <Route
+                                    key={index}
+                                    path={route.path}
+                                    element={<Page onLogin={handleLogin} onLogout={handleLogout} />}
+                                />
+                            );
+                        })}
+                    </Routes>
+                </div>
             </div>
         </Router>
     );
