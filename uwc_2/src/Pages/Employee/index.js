@@ -11,8 +11,18 @@ function Employee() {
     const [employeeName, setEmployeeName] = useState('');
     const [employeeSex, setEmployeeSex] = useState('');
     const [employeeAddress, setEmployeeAddress] = useState('');
+    const [employeeId1, setEmployeeId1] = useState('');
+    const [deleteE, setDeleteE] = useState(0);
     const [render, setRender] = useState(0);
-    if (render) {
+
+    if (render == 1 && deleteE == 1) {
+        if (employeeId1 != '') {
+            employeeData.current = employeeData.current.filter((item) => item.id != employeeId1);
+            deleteMCPApi('DELETE', {}, 'http://localhost:3000/employeeData', employeeId1);
+        } else alert('please fill in all information');
+        setDeleteE(0);
+        setEmployeeId1('');
+    } else if (render && deleteE == 0) {
         let newEmployee = Object.assign(
             {},
             {
@@ -32,6 +42,21 @@ function Employee() {
         setEmployeeName('');
         setEmployeeSex('');
         setRender(false);
+    }
+    function deleteMCPApi(method, body, url, id) {
+        fetch(`${url}/${id}`, {
+            method: method,
+        })
+            .then((response) => {
+                if (response.ok) {
+                    alert(`Employee with id ${id} has been deleted successfully.`);
+                } else {
+                    alert(`Failed to delete Employee with id ${id}.`);
+                }
+            })
+            .catch((error) => {
+                alert(`Failed to delete Employee with id ${id}.`, error);
+            });
     }
     function addEmployee(method, body, url, id) {
         fetch(`${url}`, {
@@ -101,6 +126,26 @@ function Employee() {
                                 }}
                             >
                                 Add
+                            </button>
+                        </div>
+                    </div>
+                    <div className={clsx(styles.delete_box)}>
+                        <div className={clsx(styles.delete_box_container)}>
+                            <input
+                                placeholder="Employee id"
+                                value={employeeId1}
+                                onChange={(event) => {
+                                    setEmployeeId1(event.target.value);
+                                }}
+                            ></input>
+
+                            <button
+                                onClick={() => {
+                                    setRender(1);
+                                    setDeleteE(1);
+                                }}
+                            >
+                                Delete
                             </button>
                         </div>
                     </div>

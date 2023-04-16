@@ -7,6 +7,9 @@ function McpMap() {
     const MCP_img = [id1, id2, id3, id4, id5, id6, id7];
     const urlMCPs = 'http://localhost:3000/MCP';
     const [MCPid, setMCPid] = useState('');
+    const [MCPid1, setMCPid1] = useState('');
+    const [address1, setAddress1] = useState('');
+    const [deleteMCP, setDeleteMCP] = useState(0);
     const [address, setAddress] = useState('');
     const [state, setState] = useState('');
     const [image, setImage] = useState('');
@@ -40,6 +43,21 @@ function McpMap() {
             },
         }).then((response) => response.json());
     }
+    function deleteMCPApi(method, body, url, id) {
+        fetch(`${url}/${id}`, {
+            method: method,
+        })
+            .then((response) => {
+                if (response.ok) {
+                    alert(`Object with id ${id} has been deleted successfully.`);
+                } else {
+                    alert(`Failed to delete object with id ${id}.`);
+                }
+            })
+            .catch((error) => {
+                alert(`Failed to delete object with id ${id}.`, error);
+            });
+    }
     if (render) {
         if (accountData.current.backOfficer == false) {
             if (MCPData.current[MCPid - 1].address == address) {
@@ -47,7 +65,12 @@ function McpMap() {
                 UpdateMCPApi('PATCH', MCPData.current[MCPid - 1], urlMCPs, MCPid);
             } else alert('Sai thông tin MCP');
         }
-        if (accountData.current.backOfficer == true) {
+        if (accountData.current.backOfficer == true && deleteMCP == 1) {
+            if (address1 != '' && MCPid1 != '') {
+                MCPData.current = MCPData.current.filter((item) => item.MCPid != MCPid1);
+                deleteMCPApi('DELETE', {}, urlMCPs, MCPid1);
+            } else alert('please fill in all information');
+        } else if (accountData.current.backOfficer == true && deleteMCP == 0) {
             if (address != '' && MCPid != '' && state != '' && image != '') {
                 let newMCP = {
                     MCPid: MCPid,
@@ -62,8 +85,11 @@ function McpMap() {
         setRender(0);
         setAddress('');
         setMCPid('');
+        setAddress1('');
+        setMCPid1('');
         setImage('');
         setState('');
+        setDeleteMCP(0);
     }
     if (accountData.current.backOfficer == false) {
         return (
@@ -102,6 +128,7 @@ function McpMap() {
                         </div>
                     </div>
                 </div>
+
                 <div className={clsx(styles.flex_container)}>
                     {MCPData.current.map((MCP, index) => {
                         let temp = index % 7;
@@ -161,10 +188,36 @@ function McpMap() {
                             </button>
                         </div>
                     </div>
+                    <div className={clsx(styles.delete_box)}>
+                        <div className={clsx(styles.delete_box_container)}>
+                            <input
+                                placeholder="MCPid"
+                                value={MCPid1}
+                                onChange={(event) => {
+                                    setMCPid1(event.target.value);
+                                }}
+                            ></input>
+                            <input
+                                placeholder="Address"
+                                value={address1}
+                                onChange={(event) => {
+                                    setAddress1(event.target.value);
+                                }}
+                            ></input>
+
+                            <button
+                                onClick={() => {
+                                    setRender(1);
+                                    setDeleteMCP(1);
+                                }}
+                            >
+                                Delete
+                            </button>
+                        </div>
+                    </div>
                 </div>
                 <div className={clsx(styles.flex_container)}>
                     {MCPData.current.map((MCP, index) => {
-                        console.log(index % 7);
                         return (
                             <ul className={clsx(styles.flex_item)} key={index}>
                                 <li key={MCP.MCPid}>MCP id: {MCP.MCPid}</li>

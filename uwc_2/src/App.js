@@ -13,7 +13,6 @@ function App() {
     const account = useRef(new Account());
 
     const [page, setPage] = useState(publicRoutes);
-    console.log(privateRoutes);
     const [accountData, setAccountData] = useState([]);
     const [employeeData, setemployeeData] = useState([]);
     useEffect(() => {
@@ -79,7 +78,29 @@ function App() {
             alert(`Sai rồi ${account.current.getAccountName()}`);
         }
     });
-
+    console.log(page == publicRoutes);
+    if (page == publicRoutes) {
+        return (
+            <Router>
+                <div className={clsx(styles.container)}>
+                    <div className={styles.page}>
+                        <Routes>
+                            {page.map((route, index) => {
+                                const Page = route.component;
+                                return (
+                                    <Route
+                                        key={index}
+                                        path={route.path}
+                                        element={<Page onLogin={handleLogin} onLogout={handleLogout} />}
+                                    />
+                                );
+                            })}
+                        </Routes>
+                    </div>
+                </div>
+            </Router>
+        );
+    }
     return (
         <Router>
             <div className={clsx(styles.container)}>

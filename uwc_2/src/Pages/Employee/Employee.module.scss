@@ -7,8 +7,10 @@
 }
 
 .fixed {
+    padding-top: 50px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     top: 42px;
     z-index: 1;
     width: 75vw;
@@ -22,7 +24,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 90px 0px 0px 0px;
+    padding: 130px 0px 0px 0px;
     width: 100%;
 }
 
