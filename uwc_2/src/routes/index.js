@@ -6,7 +6,11 @@ import Employee from '~/Pages/Employee';
 import WorkCalendar from '~/Pages/WorkCalendar';
 import McpMap from '~/Pages/McpMap/McpMap';
 import Chat from '~/Pages/Chat';
-const publicRoutes = [{ path: '/', component: Login }];
+import Sigup from '~/Pages/Sigup';
+const publicRoutes = [
+    { path: '/', component: Login },
+    { path: '/sigup', component: Sigup },
+];
 
 const privateRoutes = [
     { path: '/', component: Home },

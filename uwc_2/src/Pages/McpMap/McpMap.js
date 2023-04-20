@@ -71,7 +71,7 @@ function McpMap() {
                 deleteMCPApi('DELETE', {}, urlMCPs, MCPid1);
             } else alert('please fill in all information');
         } else if (accountData.current.backOfficer == true && deleteMCP == 0) {
-            if (address != '' && MCPid != '' && state != '' && image != '') {
+            if (address != '' && MCPid != '' && state != '') {
                 let newMCP = {
                     MCPid: MCPid,
                     address: address,
@@ -80,7 +80,9 @@ function McpMap() {
                 };
                 MCPData.current.push(newMCP);
                 changeMCPApi('POST', newMCP, urlMCPs, MCPid);
-            } else alert('please fill in all information');
+            } else {
+                alert('please fill in all information');
+            }
         }
         setRender(0);
         setAddress('');

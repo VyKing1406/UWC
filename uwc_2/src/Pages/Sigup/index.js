@@ -3,16 +3,16 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Account } from '~/class';
 import clsx from 'clsx';
-import styles from './Login.module.scss';
+import styles from './Sigup.module.scss';
 import loginBackground from '~/image/loginBackground.jpg';
-function Login({ onLogin }) {
+function Sigup({ onLogin }) {
     const navigate = useNavigate();
     const user = new Account();
     return (
         <div className={clsx(styles.container)} style={{ backgroundImage: `url(${loginBackground})` }}>
             <div className={clsx(styles.login_box)}>
                 <Form>
-                    <div className={clsx(styles.login_box__title)}>SIGIN</div>
+                    <div className={clsx(styles.login_box__title)}>SIG UP</div>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>User Name</Form.Label>
                         <Form.Control
@@ -34,25 +34,28 @@ function Login({ onLogin }) {
                             }}
                         />
                     </Form.Group>
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Label>Password again</Form.Label>
+                        <Form.Control
+                            type="password"
+                            placeholder="Enter Password"
+                            onChange={(event) => {
+                                user.setAccountPassWord(event.target.value);
+                            }}
+                        />
+                    </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
                     <div className={clsx(styles.login_box_button)}>
-                        <Button
-                            className={clsx(styles.button_login)}
-                            onClick={() => {
-                                onLogin(user);
-                            }}
-                        >
-                            SIGIN
-                        </Button>
+                        <Button className={clsx(styles.button_login)}>SIGUP</Button>
                         <Button
                             className={clsx(styles.button_signin)}
                             onClick={() => {
-                                navigate('/sigup');
+                                navigate('/');
                             }}
                         >
-                            SIGUP
+                            SIGIN
                         </Button>
                     </div>
                 </Form>
@@ -61,4 +64,4 @@ function Login({ onLogin }) {
     );
 }
 
-export default Login;
+export default Sigup;

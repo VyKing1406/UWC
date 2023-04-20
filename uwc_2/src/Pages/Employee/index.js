@@ -16,10 +16,11 @@ function Employee() {
     const [render, setRender] = useState(0);
 
     if (render == 1 && deleteE == 1) {
-        if (employeeId1 != '') {
+        if (employeeId1 != '' && employeeId1 != '0') {
             employeeData.current = employeeData.current.filter((item) => item.id != employeeId1);
             deleteMCPApi('DELETE', {}, 'http://localhost:3000/employeeData', employeeId1);
-        } else alert('please fill in all information');
+        } else if (employeeId1 == '0') alert('This id is not valid');
+        else alert('please fill in all information');
         setDeleteE(0);
         setEmployeeId1('');
     } else if (render && deleteE == 0) {
@@ -72,15 +73,17 @@ function Employee() {
             <div className={clsx(styles.container)}>
                 <div className={clsx(styles.flex_container)}>
                     {employeeData.current.map((employee, index) => {
-                        return (
-                            <ul key={index} className={clsx(styles.flex_item)}>
-                                <li key={employee.id}>{employee.id}</li>
-                                <li key={employee.name}>{employee.name}</li>
-                                <li key={employee.sex}>{employee.sex}</li>
-                                <li key={employee.address}>{employee.address}</li>
-                                <img className={clsx(styles.employee_avt)} src={employeeAvt[index % 3]} />
-                            </ul>
-                        );
+                        if (index != 0) {
+                            return (
+                                <ul key={index} className={clsx(styles.flex_item)}>
+                                    <li key={employee.id}>{employee.id}</li>
+                                    <li key={employee.name}>{employee.name}</li>
+                                    <li key={employee.sex}>{employee.sex}</li>
+                                    <li key={employee.address}>{employee.address}</li>
+                                    <img className={clsx(styles.employee_avt)} src={employeeAvt[index % 3]} />
+                                </ul>
+                            );
+                        }
                     })}
                 </div>
             </div>
@@ -152,15 +155,17 @@ function Employee() {
                 </div>
                 <div className={clsx(styles.flex_container)}>
                     {employeeData.current.map((employee, index) => {
-                        return (
-                            <ul key={index} className={clsx(styles.flex_item)}>
-                                <li key={employee.id}>{employee.id}</li>
-                                <li key={employee.name}>{employee.name}</li>
-                                <li key={employee.sex}>{employee.sex}</li>
-                                <li key={employee.address}>{employee.address}</li>
-                                <img className={clsx(styles.employee_avt)} src={employeeAvt[index % 3]} />
-                            </ul>
-                        );
+                        if (index != 0) {
+                            return (
+                                <ul key={index} className={clsx(styles.flex_item)}>
+                                    <li key={employee.id}>{employee.id}</li>
+                                    <li key={employee.name}>{employee.name}</li>
+                                    <li key={employee.sex}>{employee.sex}</li>
+                                    <li key={employee.address}>{employee.address}</li>
+                                    <img className={clsx(styles.employee_avt)} src={employeeAvt[index % 3]} />
+                                </ul>
+                            );
+                        }
                     })}
                 </div>
             </div>

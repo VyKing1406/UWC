@@ -52,7 +52,7 @@ function Account({ onLogout }) {
     return (
         <div>
             <ul className={clsx(styles.container)}>
-                <img className={clsx(styles.account_avt, styles.flex_item)} src={accountAvt[employeeInfo.id - 1]} />
+                <img className={clsx(styles.account_avt, styles.flex_item)} src={accountAvt[employeeInfo.id]} />
                 <div className={clsx(styles.account_infor, styles.flex_item)}>
                     <li>Name: {employeeInfo.name}</li>
                     <li>Id Account: {employeeInfo.id}</li>

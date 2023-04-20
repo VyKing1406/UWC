@@ -16,8 +16,8 @@ function WorkCalendar({ accountCurrent }) {
             localStorage.setItem('employeeData', JSON.stringify(employeeData));
         });
     return (
-        <div>
-            <Calendar className={styles.calendar} />
+        <div className={styles.calendar}>
+            <Calendar />
         </div>
     );
 }

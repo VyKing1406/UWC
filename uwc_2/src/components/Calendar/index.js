@@ -9,7 +9,7 @@ function Calendar() {
     const accountData = useRef(JSON.parse(localStorage.getItem('account')));
     const MCPData = useRef(JSON.parse(localStorage.getItem('MCPData')));
 
-    const employeeData = useRef(employeesData.current[accountData.current.id - 1]);
+    const employeeData = useRef(employeesData.current[accountData.current.id]);
     const jobDate = employeeData.current.job.map((job) => {
         return job.date;
     });

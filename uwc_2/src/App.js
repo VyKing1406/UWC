@@ -54,6 +54,7 @@ function App() {
         account.current.loginStatus = false;
         setPage(publicRoutes);
     });
+
     const handleLogin = useCallback((accountParameter) => {
         account.current.loginStatus = true;
         account.current.setAccountName(accountParameter.getAccountName());
@@ -87,13 +88,7 @@ function App() {
                         <Routes>
                             {page.map((route, index) => {
                                 const Page = route.component;
-                                return (
-                                    <Route
-                                        key={index}
-                                        path={route.path}
-                                        element={<Page onLogin={handleLogin} onLogout={handleLogout} />}
-                                    />
-                                );
+                                return <Route key={index} path={route.path} element={<Page onLogin={handleLogin} />} />;
                             })}
                         </Routes>
                     </div>
