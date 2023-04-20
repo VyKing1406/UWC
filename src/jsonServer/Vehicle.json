@@ -1,0 +1,32 @@
+{
+    "vehicle": [
+        {
+            "vehicleId": 1,
+            "type": "yamaha"
+        },
+        {
+            "vehicleId": 2,
+            "type": "lamborghini"
+        },
+        {
+            "vehicleId": 3,
+            "type": "honda"
+        },
+        {
+            "vehicleId": 4,
+            "type": "yamaha"
+        },
+        {
+            "vehicleId": 5,
+            "type": "lamborghini"
+        },
+        {
+            "vehicleId": 6,
+            "type": "lamborghini"
+        },
+        {
+            "vehicleId": 7,
+            "type": "yamaha"
+        }
+    ]
+}

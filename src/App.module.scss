@@ -1,0 +1,23 @@
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    min-width: 75vw;
+}
+.page {
+    position: absolute;
+    left: 0px;
+    right: 0px; //
+    top: 90px;
+}
+
+.sidebar {
+    z-index: 1;
+    background-color: white;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+}

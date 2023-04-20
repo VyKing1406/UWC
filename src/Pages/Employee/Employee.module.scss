@@ -1,0 +1,57 @@
+.container {
+    max-width: 75vw;
+    display: flex;
+    justify-content: center;
+    height: 600px;
+    margin: auto;
+}
+
+.fixed {
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 42px;
+    z-index: 1;
+    width: 75vw;
+    margin: auto;
+    background-color: white;
+    padding-bottom: 20px;
+    position: fixed;
+}
+
+.flex_container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 130px 0px 0px 0px;
+    width: 100%;
+}
+
+.delete_box_container,
+.change_box_container {
+    margin-bottom: 20px;
+    input {
+        margin-right: 12px;
+    }
+}
+
+.flex_item {
+    position: relative;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border: 1px solid #ccc;
+    width: 35vw;
+    height: 200px;
+    list-style: none;
+}
+
+.employee_avt {
+    position: absolute;
+    width: 40%;
+    height: 80%;
+    object-fit: contain;
+    top: 20px;
+    right: 20px;
+}

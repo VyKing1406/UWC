@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "MCPid": 1,
+        "address": "ktx A",
+        "status": 90,
+        "url": "~/image/MCP/id1.jpg"
+    },
+    {
+        "id": 2,
+        "MCPid": 2,
+        "address": "ktx B",
+        "status": 20,
+        "url": "~/image/MCP/id2.jpg"
+    },
+    {
+        "id": 3,
+        "MCPid": 3,
+        "address": "ktx C",
+        "status": 20,
+        "url": "~/image/MCP/id3.jpg"
+    },
+    {
+        "id": 4,
+        "MCPid": 4,
+        "address": "ktx D",
+        "status": 10,
+        "url": "~/image/MCP/id4.jpg"
+    },
+    {
+        "id": 5,
+        "MCPid": 5,
+        "address": "ktx E",
+        "status": 25,
+        "url": "~/image/MCP/id5.jpg"
+    },
+    {
+        "id": 6,
+        "MCPid": 6,
+        "address": "ktx E",
+        "status": 15,
+        "url": "~/image/MCP/id6.jpg"
+    },
+    {
+        "id": 7,
+        "MCPid": 7,
+        "address": "ktx E",
+        "status": 13,
+        "url": "~/image/MCP/id6.jpg"
+    }
+]
