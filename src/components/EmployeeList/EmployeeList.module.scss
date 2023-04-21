@@ -1,0 +1,31 @@
+.wrapper {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px 0px;
+    position: relative;
+    width: 400px;
+    display: flex;
+}
+
+.wrapper:hover {
+    background-color: #ccc;
+}
+.container {
+    height: 20%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex_item {
+    width: 90%;   
+}
+
+.check_box {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    display: block;
+    width: 30px;
+    height: 30px;
+}
