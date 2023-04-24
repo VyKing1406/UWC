@@ -12,7 +12,7 @@ function Sigup({ onLogin }) {
         <div className={clsx(styles.container)} style={{ backgroundImage: `url(${loginBackground})` }}>
             <div className={clsx(styles.login_box)}>
                 <Form>
-                    <div className={clsx(styles.login_box__title)}>SIG UP</div>
+                    <div className={clsx(styles.login_box__title)}>SIGN UP</div>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>User Name</Form.Label>
                         <Form.Control
@@ -48,14 +48,14 @@ function Sigup({ onLogin }) {
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
                     <div className={clsx(styles.login_box_button)}>
-                        <Button className={clsx(styles.button_login)}>SIGUP</Button>
+                        <Button className={clsx(styles.button_login)}>SIGN UP</Button>
                         <Button
                             className={clsx(styles.button_signin)}
                             onClick={() => {
                                 navigate('/');
                             }}
                         >
-                            SIGIN
+                            SIGN IN
                         </Button>
                     </div>
                 </Form>
