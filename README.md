@@ -1,6 +1,7 @@
 # npm start 
+Turn on the terminal in folder of project, "npm i" to install the necessary things 
+After that,  "npm start" to run the project, it will run in your 3001 port. 
 Turn on the terminal in source/jsonserve to run json server (fake api server). it will run in your 3000 port.
-Turn on the terminal in folder of project, "npm start" to run the project, it will run in your 3001 port.
 
 
 Account :
